@@ -1,0 +1,79 @@
+/* Stile copertine */
+.posizione_copertine {z-index: 3; width: 160px; height: 224px; display: block; position: absolute; float: right; cursor: pointer;}
+
+#spiacevole_energico {top: 201px; left: 16px;}
+#piacevole_energico {top: 201px; left: 200px;}
+#piacevole_calmo {top: 457px; left: 200px;}
+#spiacevole_calmo {top: 457px; left: 16px;}
+#centro {z-index: 1; width: 89px; height: 89px; top: 398px; left: 143.47px; cursor: context-menu;}
+
+/* Stile UI */
+.posizione_UI {position: absolute; float: right;}
+
+#navbar { z-index: 5; width: 376px; height: 94px; top: 729px; left: 0px; display: block;}
+#done_attivo { z-index: 7; width: 64px; height: 64px; top: 722px; left: 156px; display: none; cursor: pointer;}
+#done_inattivo { z-index: 6; width: 64px; height: 64px; top: 722px; left: 156px; display: block;}
+#restart { z-index: 8; width: 64px; height: 64px; top: 722px; left: 156px; display: none; cursor: pointer;}
+#topbar { z-index: 10; width: 376px; height: 94px; top: -5px; left: 0px; display: block;}
+#topbar_nerino { z-index: 11; width: 187px; height: 26px; top: 0px; left: 94px; display: block;}
+
+
+#sfondo_albero {z-index: 4; width: 376px; height: 812px; top: 0px; position: absolute; float: right; left: 0px; display: none;}
+#tronco {z-index: 6; width: 114px; height: 411px; top: 268px; position: absolute; float: right; left: 131px; display: none;}
+
+/* Stile chiome*/
+.chiome_1 {z-index: 5; position: absolute; float: right; display: none; transform: scale(var(--scale_chioma_1));}
+#giallo_1 { width: 294px; height: 392px; top: 90px; left: 38px;}
+#verde_1 { width: 370px; height: 392px; top: 85px; left: 5px;}
+#blu_1 { width: 370px; height: 307px; top: 120px; left: 3px;}
+#rosso_1 { width: 303px; height: 360px; top: 110px; left: 37px;}
+
+.chiome_2 {z-index: 7; width: 197px; height: 202px; top: 384px; position: absolute; float: right; left: 126px; display: none; transform: scale(var(--scale_chioma_2));}
+#giallo_2 {}
+#verde_2 {}
+#blu_2 {}
+#rosso_2 {}
+
+.chiome_3 {z-index: 7; width: 197px; height: 202px; top: 91px; position: absolute; float: right; left: 90px; display: none; transform: scale(var(--scale_chioma_3));}
+#giallo_3 {}
+#verde_3 {}
+#blu_3 {}
+#rosso_3 {}
+
+/* Stile bottoni */
+.posizione_bottoni {z-index: 2; width: 68px; height: 22,5px; position: absolute; float: right; display: block; transition: transform 0.5s; cursor: pointer;}
+.posizione_bottoni:hover {z-index: 3; transform: scale(2.3); transform-origin: center center;}
+
+#v1 {top: 468px; left: 284px; transform-origin: top right;}
+#v2 {top: 521px; left: 205px; transform-origin: top left;}
+#v3 {top: 580px; left: 281px; transform-origin: top right;}
+#v4 {top: 636px; left: 213px; transform-origin: bottom left;}
+#b1 {top: 468px; left: 22px; transform-origin: top left;}
+#b2 {top: 519px; left: 105px; transform-origin: top right;}
+#b3 {top: 583px; left: 22px; transform-origin: center left;}
+#b4 {top: 634px; left: 85px; transform-origin: bottom center;}
+#r1 {top: 220px; left: 86px; transform-origin: top center;}
+#r2 {top: 273px; left: 23px; transform-origin: top left;}
+#r3 {top: 332px; left: 106px; transform-origin: bottom right;}
+#r4 {top: 385px; left: 28px; transform-origin: bottom left;}
+#g1 {top: 217px; left: 214px; transform-origin: top left;}
+#g2 {top: 283px; left: 280px; transform-origin: center right;}
+#g3 {top: 329px; left: 202px; transform-origin: center left;}
+#g4 {top: 379px; left: 280px; transform-origin: bottom right;}
+
+/*Area_popup*/
+
+.pop_up {z-index: 12; position: absolute; float: right; }
+#popup_sfondo {width: 376px; height: 823px; top: 0px;  left: 0px; display: none;}
+#popup_barra_progresso {width: 12px; height: 8px; top: 550px;  left: 77px; display: none; background-color: rgb(122, 196, 125); border-radius: 25px; transition: width 0.2s;}
+#popup_barra_sfondo {width: 232px; height: 8px; top: 550px;  left: 77px; display: none; background-color: rgb(204, 227, 205); border-radius: 25px;}
+#popup_card {z-index: 12; width: 344px; height: 444.68px; top: 215px;  left: 16px; display: none;}
+#popup_done {z-index: 12; width: 56px; height: 56px; top: 570px;  left: 160px; display: none; cursor: pointer;}
+#popup_giallo {z-index: 12; width: 53.47px; height: 53.47px; top: 390px;  left: 161px; display: none;
+    transform: scale(var(--scale_popup)); transition: transform 0.4s; cursor: pointer;}
+#popup_verde {z-index: 12; width: 53.47px; height: 53.47px; top: 390px;  left: 161px; display: none;
+    transform: scale(var(--scale_popup)); transition: transform 0.4s; cursor: pointer;}
+#popup_rosso {z-index: 12; width: 53.47px; height: 53.47px; top: 390px;  left: 161px; display: none;
+    transform: scale(var(--scale_popup)); transition: transform 0.4s; cursor: pointer;}
+#popup_blu {z-index: 12; width: 53.47px; height: 53.47px; top: 390px;  left: 161px; display: none;
+    transform: scale(var(--scale_popup)); transition: transform 0.4s; cursor: pointer;}

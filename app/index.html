@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="assets/js/jquery.min.js"></script>
+        <meta name="Luca Meneguzzo">
+        <title>Come ti senti oggi?</title>
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+        :root { --scale_popup: 1;
+                --scale_chioma_1: 1;
+                --scale_chioma_2: 1;
+                --scale_chioma_3: 1;
+                } /*Questa variabile mi servirà per i pop_up e per la dimensione finale delle chiome (dell'albero generato)*/
+        </style>
+    </head>
+    <body style="padding: 0px; margin: 0px; background: #000000; overflow: hidden;">
+        <section style="width: 376px; height: 812px; z-index: 0;">
+            <div>
+                <!-- Copertine -->
+                <a><img src="assets/UI_sfondo.svg" style="width: 376px; height: 812px; z-index: 0; display: block;"></a>
+                <a><img id="spiacevole_energico" class="posizione_copertine" src="assets/UI_non_espanso/spiacevole_energco.svg"></a>
+                <a><img id="piacevole_energico" class="posizione_copertine" src="assets/UI_non_espanso/piacevole_energico.svg"></a>
+                <a><img id="piacevole_calmo" class="posizione_copertine" src="assets/UI_non_espanso/piacevole_calmo.svg"></a>
+                <a><img id="spiacevole_calmo" class="posizione_copertine" src="assets/UI_non_espanso/spiacevole_calmo.svg"></a>
+                <a><img id="centro" class="posizione_copertine" src="assets/UI_non_espanso/centro.svg"></a>
+                <!-- Navbar/Topbar-->
+                <!-- ATTENTO,la funzione .show che serve per passare da dispay none a block funziona solo sell'id è dentro all'img! (dentro al <> che contiene il dispaly
+                se il # lo tengo nel <a>, allora .show non funzionerà). fadeOut e fadeIn fanno la stessa cosa, solo con un'animazione-->
+                <a><img id="navbar" class="posizione_UI" src="assets/albero/navbar_vuota.svg"></a>
+                <a><img id="done_attivo" class="posizione_UI" src="assets/bottoni/abottone_done_attivo.svg"></a>
+                <a><img id="done_inattivo" class="posizione_UI" src="assets/bottoni/abottone_done_inattivo.svg"></a>
+                <a><img id="restart" class="posizione_UI" src="assets/bottoni/abottone_restart_attivo.svg"></a>
+                <a><img id="topbar" class="posizione_UI" src="assets/bottoni/topbar.svg"></a>
+                <a><img id="topbar_nerino" class="posizione_UI" src="assets/bottoni/topbar_nerino.svg"></a>
+                <!-- albero -->
+                <!-- UI -->
+                <a><img id="sfondo_albero" class="posizione_UI" src="assets/albero/sfondopng_albero.png"></a>
+                <a><img id="tronco" class="posizione_UI" src="assets/albero/tronco.svg"></a>
+                <!-- 1 -->
+                <a><img id="giallo_1" class="chiome_1" src="assets/albero/giallo_big.svg"></a>
+                <a><img id="verde_1" class="chiome_1" src="assets/albero/verde_big.svg"></a>
+                <a><img id="blu_1" class="chiome_1" src="assets/albero/blu_big.svg"></a>
+                <a><img id="rosso_1" class="chiome_1" src="assets/albero/rosso_big.svg"></a>
+                <!-- 2 -->
+                <a><img id="giallo_2" class="chiome_2" src="assets/albero/giallo_small.svg"></a>
+                <a><img id="verde_2" class="chiome_2" src="assets/albero/verde_small.svg"></a>
+                <a><img id="blu_2" class="chiome_2" src="assets/albero/blu_small.svg"></a>
+                <a><img id="rosso_2" class="chiome_2" src="assets/albero/rosso_small.svg"></a>
+                <!-- 3 -->
+                <a><img id="giallo_3" class="chiome_3" src="assets/albero/giallo_small.svg"></a>
+                <a><img id="verde_3" class="chiome_3" src="assets/albero/verde_small.svg"></a>
+                <a><img id="blu_3" class="chiome_3" src="assets/albero/blu_small.svg"></a>
+                <a><img id="rosso_3" class="chiome_3" src="assets/albero/rosso_small.svg"></a>
+                <!-- popup -->
+                <a><img id="popup_sfondo" class="pop_up" src="assets/popup/popup_sfondo.svg" ></a>
+                <a><img id="popup_card" class="pop_up" src="assets/popup/popup_card.svg" ></a>
+                <a><img id="popup_done" class="pop_up" src="assets/popup/popup_done.svg" ></a> <!-- draggable="false"; mi permette di rendere non dragable le img nel popup, impedendo meglio un bug con il "onmouseup"-->
+                <a><img id="popup_giallo" class="pop_up" onmousedown="timer()" onmouseup="no_timer()" draggable="false" src="assets/popup/popup_giallo.svg" ></a>
+                <a><img id="popup_verde" class="pop_up" onmousedown="timer()" onmouseup="no_timer()" draggable="false" src="assets/popup/popup_verde.svg" ></a>
+                <a><img id="popup_rosso" class="pop_up" onmousedown="timer()" onmouseup="no_timer()" draggable="false" src="assets/popup/popup_rosso.svg" ></a>
+                <a><img id="popup_blu" class="pop_up" onmousedown="timer()" onmouseup="no_timer()" draggable="false" src="assets/popup/popup_blu.svg" ></a>
+                <div id="popup_barra_sfondo" class="pop_up"></div>
+                <div id="popup_barra_progresso" class="pop_up"></div>
+
+            </div>
+            <div>
+                <!-- Bottoni -->
+                <!-- verde_bottoni -->
+                <a><img id="v1" class="posizione_bottoni" src="assets/bottoni/verde_rilassato.svg"></a>
+                <a><img id="v2" class="posizione_bottoni" src="assets/bottoni/verde_spensierato.svg"></a>
+                <a><img id="v3" class="posizione_bottoni" src="assets/bottoni/verde_sereno.svg"></a>
+                <a><img id="v4" class="posizione_bottoni" src="assets/bottoni/verde_calmo.svg"></a>
+                <!-- blu_bottoni -->
+                <a><img id="b1" class="posizione_bottoni" src="assets/bottoni/blu_annoiato.svg"></a>
+                <a><img id="b2" class="posizione_bottoni" src="assets/bottoni/blu_stanco.svg"></a>
+                <a><img id="b3" class="posizione_bottoni" src="assets/bottoni/blu_malinconico.svg"></a>
+                <a><img id="b4" class="posizione_bottoni" src="assets/bottoni/blu_triste.svg"></a>
+                <!-- rosso_bottoni -->
+                <a><img id="r1" class="posizione_bottoni" src="assets/bottoni/rosso_nervoso.svg"></a>
+                <a><img id="r2" class="posizione_bottoni" src="assets/bottoni/rosso_teso.svg"></a>
+                <a><img id="r3" class="posizione_bottoni" src="assets/bottoni/rosso_infastidito.svg"></a>
+                <a><img id="r4" class="posizione_bottoni" src="assets/bottoni/rosso_irritato.svg"></a>
+                <!-- giallo_bottoni -->
+                <a><img id="g1" class="posizione_bottoni" src="assets/bottoni/giallo_eccitato.svg"></a>
+                <a><img id="g2" class="posizione_bottoni" src="assets/bottoni/giallo_carico.svg"></a>
+                <a><img id="g3" class="posizione_bottoni" src="assets/bottoni/giallo_felice.svg"></a>
+                <a><img id="g4" class="posizione_bottoni" src="assets/bottoni/giallo_allegro.svg"></a>
+            </div>
+        </section>
+        <script>
+
+        //FUNZIONI per scomparsa
+            function scompari_piacevole_calmo() {$("#piacevole_calmo").fadeOut(500)};
+            function scompari_spiacevole_calmo() {$("#spiacevole_calmo").fadeOut(500)};
+            function scompari_piacevole_energico() {$("#piacevole_energico").fadeOut(500)};
+            function scompari_spiacevole_energico() {$("#spiacevole_energico").fadeOut(500)};
+
+            $("#piacevole_calmo").on("click",scompari_piacevole_calmo)
+            $("#spiacevole_calmo").on("click",scompari_spiacevole_calmo)
+            $("#piacevole_energico").on("click",scompari_piacevole_energico)
+            $("#spiacevole_energico").on("click",scompari_spiacevole_energico)
+
+           //FUNZIONI variabile bottoni e tasti navbar
+
+          var n_chiome = 0; //definisco il numero di chiome, quando la var sarà 3, allora i pulsanti non potranno essere premuti
+          var stato_navbar = 0; //variabile per cambiare il bottone nella navbar
+         setInterval(
+            function done_attivo(){
+            if (stato_navbar == 1) {$("#done_attivo").show()} },
+             10);
+//------------------------------------------------------------------------------------------------------------------------------
+      /*COMPARSA POPUP*/
+      function compari_popup_giallo() {
+        $("#popup_sfondo").fadeIn(300);
+        $("#popup_card").fadeIn(300);
+        $("#popup_done").fadeIn(300);
+        $("#popup_barra_progresso").fadeIn(300);
+        $("#popup_barra_sfondo").fadeIn(300);
+        $("#popup_giallo").fadeIn(300)
+      };
+      function compari_popup_verde() {
+        $("#popup_sfondo").fadeIn(300);
+        $("#popup_card").fadeIn(300);
+        $("#popup_done").fadeIn(300);
+        $("#popup_barra_progresso").fadeIn(300);
+        $("#popup_barra_sfondo").fadeIn(300);
+        $("#popup_verde").fadeIn(300)
+      };
+      function compari_popup_rosso() {
+        $("#popup_sfondo").fadeIn(300);
+        $("#popup_card").fadeIn(300);
+        $("#popup_done").fadeIn(300);
+        $("#popup_barra_progresso").fadeIn(300);
+        $("#popup_barra_sfondo").fadeIn(300);
+        $("#popup_rosso").fadeIn(300)
+      };
+      function compari_popup_blu() {
+        $("#popup_sfondo").fadeIn(300);
+        $("#popup_card").fadeIn(300);
+        $("#popup_done").fadeIn(300);
+        $("#popup_barra_progresso").fadeIn(300);
+        $("#popup_barra_sfondo").fadeIn(300);
+        $("#popup_blu").fadeIn(300)
+      };
+
+      /*FUNIONI POPUP*/
+      var chioma = [0]; //uso un'array così poi mi sarà facile trasferire questo valore ad un'array complessiva con tutte le grandezze
+      var chiome_finalsize = []; //in questa variabile inserisco i valori generati, di volta in volta, dai popup. Poi l auso per generare la dimensione delle chiomi finali
+      var interval_1 = null; /*variabile necessaria per fermare il setInterval con onmouseup*/
+
+      var r = document.querySelector(':root'); /* Creo una variabile javascript per trovare la variabile --scale_popup*/
+      /*chiamo la funzione per cambiare la variabile css --scale_popup.
+      Mi rendo conto sia estremamente sporca questa funzione, ma non ho trovato un modo per aggiungere ad una variabile css un "tot" più il suo valore precedente*/
+      function ingrandiscimi() {
+        if(chioma[0] == 1) {r.style.setProperty("--scale_popup", "1.3"); $("#popup_barra_progresso").width(34)} // la prima linea mi cambia la variabile css, la seconda  mi modifica la lunghezza della barra
+        else if (chioma[0] == 2) {r.style.setProperty("--scale_popup", "1.6"); $("#popup_barra_progresso").width(56)}
+        else if (chioma[0] == 3) {r.style.setProperty("--scale_popup", "1.9"); $("#popup_barra_progresso").width(78)}
+        else if (chioma[0] == 4) {r.style.setProperty("--scale_popup", "2.2"); $("#popup_barra_progresso").width(100)}
+        else if (chioma[0] == 5) {r.style.setProperty("--scale_popup", "2.5"); $("#popup_barra_progresso").width(122)}
+        else if (chioma[0] == 6) {r.style.setProperty("--scale_popup", "2.8"); $("#popup_barra_progresso").width(144)}
+        else if (chioma[0] == 7) {r.style.setProperty("--scale_popup", "3.1"); $("#popup_barra_progresso").width(166)}
+        else if (chioma[0] == 8) {r.style.setProperty("--scale_popup", "3.4"); $("#popup_barra_progresso").width(188)}
+        else if (chioma[0] == 9) {r.style.setProperty("--scale_popup", "3.7"); $("#popup_barra_progresso").width(210)}
+        else if (chioma[0] == 10) {r.style.setProperty("--scale_popup", "4"); $("#popup_barra_progresso").width(232)}
+      };
+
+      /*funzione per chiamare l'ingrandimento della chioma e aumentare la var per la dimensione fino a 10*/
+      function ingrandisci_chioma() {
+        if (chioma[0]<= 10) {
+      ingrandiscimi();
+      chioma[0] = chioma[0] + 1;
+      console.log(chioma); }
+      };
+
+      /* queste funzioni le chiamo direttamente nel html dell'oggetto*/
+      function timer() {interval_1 = setInterval(ingrandisci_chioma, 400)};
+      function no_timer() {clearInterval(interval_1);};
+
+      /*Funzione per dare il done al popup*/
+      function popup_done() {
+        $("#popup_sfondo").fadeOut(300); // resetto le immagini a dispaly none, pronte per essere usate in un uovo popup
+        $("#popup_card").fadeOut(300);
+        $("#popup_done").fadeOut(300);
+        $("#popup_barra_progresso").width(12)
+        $("#popup_barra_progresso").fadeOut(300);
+        $("#popup_barra_sfondo").fadeOut(300);
+        $("#popup_giallo").fadeOut(300);
+        $("#popup_verde").fadeOut(300);
+        $("#popup_rosso").fadeOut(300);
+        $("#popup_blu").fadeOut(300);
+        chiome_finalsize.push(chioma[0]);//immetto il valore dell'array chioma nel array finale, in modo da tracciare la seguenza delle dimensioni delle chiome
+        console.log(chiome_finalsize);
+        chioma[0] = 0; // resetto la mia array da utilizzare nei prossimi popup
+        r.style.setProperty("--scale_popup", "1"); // resetto la dimensione della chioma nel popup
+        clearInterval(interval_1); //in caso di bug, questo lo limita ad un singolo popup
+        stato_navbar = 1;//attivo la navbar
+      };
+      $("#popup_done").on("click",popup_done);
+
+//------------------------------------------------------------------------------------------------------------------------------
+
+            //CREAZIONE ALBERI
+            /*funzione per chiamre gli elementi costanti dell'albero. Si potrebbe pensare di farli "arrivare" dal lato, come uno slide*/
+            function genera_sfondo(){
+              $("#restart").fadeIn(400);
+              $("#sfondo_albero").fadeIn(400);
+              $("#tronco").fadeIn(400);
+              genera_chiome_1();/*chiamo tutte le funzioni per generare le chiome*/
+              genera_chiome_2();
+              genera_chiome_3();
+              console.log(albero);};
+
+            $("#done_attivo").on("click",genera_sfondo); //chiamo lo sfondo_albero
+
+            //refresh della pagina quando click su il bottone restart
+            $("#restart").on("click",restart)
+            function restart() {document.location.reload(500)}
+
+            /*DEFINIZIONE DIMENSIONI CHIOME*/
+            /*definisco la dimensione della prima, seconda e terza chioma in base alla dimensione decisa previamente nei popup (attraverso la array che traccia le decisione degli utenti)*/
+            function dimensione_chioma_1() {
+              if (chiome_finalsize[0] == 0) {r.style.setProperty("--scale_chioma_1", "0.5")}
+              else if (chiome_finalsize[0] == 1) {r.style.setProperty("--scale_chioma_1", "0.55")}
+              else if (chiome_finalsize[0] == 2) {r.style.setProperty("--scale_chioma_1", "0.6")}
+              else if (chiome_finalsize[0] == 3) {r.style.setProperty("--scale_chioma_1", "0.65")}
+              else if (chiome_finalsize[0] == 4) {r.style.setProperty("--scale_chioma_1", "0.7")}
+              else if (chiome_finalsize[0] == 5) {r.style.setProperty("--scale_chioma_1", "0.75")}
+              else if (chiome_finalsize[0] == 6) {r.style.setProperty("--scale_chioma_1", "0.8")}
+              else if (chiome_finalsize[0] == 7) {r.style.setProperty("--scale_chioma_1", "0.85")}
+              else if (chiome_finalsize[0] == 8) {r.style.setProperty("--scale_chioma_1", "0.9")}
+              else if (chiome_finalsize[0] == 9) {r.style.setProperty("--scale_chioma_1", "1")}
+              else if (chiome_finalsize[0] == 10) {r.style.setProperty("--scale_chioma_1", "1.1")}
+            };
+
+            function dimensione_chioma_2() {
+              if (chiome_finalsize[1] == 0) {r.style.setProperty("--scale_chioma_2", "0.5")}
+              else if (chiome_finalsize[1] == 1) {r.style.setProperty("--scale_chioma_2", "0.55")}
+              else if (chiome_finalsize[1] == 2) {r.style.setProperty("--scale_chioma_2", "0.6")}
+              else if (chiome_finalsize[1] == 3) {r.style.setProperty("--scale_chioma_2", "0.65")}
+              else if (chiome_finalsize[1] == 4) {r.style.setProperty("--scale_chioma_2", "0.7")}
+              else if (chiome_finalsize[1] == 5) {r.style.setProperty("--scale_chioma_2", "0.75")}
+              else if (chiome_finalsize[1] == 6) {r.style.setProperty("--scale_chioma_2", "0.8")}
+              else if (chiome_finalsize[1] == 7) {r.style.setProperty("--scale_chioma_2", "0.85")}
+              else if (chiome_finalsize[1] == 8) {r.style.setProperty("--scale_chioma_2", "0.9")}
+              else if (chiome_finalsize[1] == 9) {r.style.setProperty("--scale_chioma_2", "1")}
+              else if (chiome_finalsize[1] == 10) {r.style.setProperty("--scale_chioma_2", "1.1")}
+            };
+
+            function dimensione_chioma_3() {
+              if (chiome_finalsize[2] == 0) {r.style.setProperty("--scale_chioma_3", "0.5")}
+              else if (chiome_finalsize[2] == 1) {r.style.setProperty("--scale_chioma_3", "0.55")}
+              else if (chiome_finalsize[2] == 2) {r.style.setProperty("--scale_chioma_3", "0.6")}
+              else if (chiome_finalsize[2] == 3) {r.style.setProperty("--scale_chioma_3", "0.65")}
+              else if (chiome_finalsize[2] == 4) {r.style.setProperty("--scale_chioma_3", "0.7")}
+              else if (chiome_finalsize[2] == 5) {r.style.setProperty("--scale_chioma_3", "0.75")}
+              else if (chiome_finalsize[2] == 6) {r.style.setProperty("--scale_chioma_3", "0.8")}
+              else if (chiome_finalsize[2] == 7) {r.style.setProperty("--scale_chioma_3", "0.85")}
+              else if (chiome_finalsize[2] == 8) {r.style.setProperty("--scale_chioma_3", "0.9")}
+              else if (chiome_finalsize[2] == 9) {r.style.setProperty("--scale_chioma_3", "1")}
+              else if (chiome_finalsize[2] == 10) {r.style.setProperty("--scale_chioma_3", "1.1")}
+            };
+
+
+            /* in questa funzione utilizzo "or", definito da "||". Significa che la funzioner si attiva se ALMENO UNA delle qgualianze è verà uno dei valori
+            STA ATTENTO, devi ripetere ogni volta l'egualianza: Sì--> (albero[0] == "v1" || albero[0] == "v2") NO--> (albero[0] == "v1" || "v2") */
+            function genera_chiome_1(){
+              //verde
+              if ( albero[0] == "v1" || albero[0] == "v2" ||  albero[0] == "v3" ||  albero[0] == "v4") { $("#verde_1").fadeIn(400); dimensione_chioma_1();};
+              //giallo
+              if ( albero[0] == "g1" || albero[0] == "g2" ||  albero[0] == "g3" ||  albero[0] == "g4") { $("#giallo_1").fadeIn(400); dimensione_chioma_1();};
+              //rosso
+              if ( albero[0] == "r1" || albero[0] == "r2" ||  albero[0] == "r3" ||  albero[0] == "r4")  { $("#rosso_1").fadeIn(400); dimensione_chioma_1();};
+              //blu
+              if ( albero[0] == "b1" || albero[0] == "b2" ||  albero[0] == "b3" ||  albero[0] == "b4")  { $("#blu_1").fadeIn(400); dimensione_chioma_1();};
+            };
+
+            function genera_chiome_2(){
+              //verde
+              if ( albero[1] == "v1" || albero[1] == "v2" ||  albero[1] == "v3" ||  albero[1] == "v4") { $("#verde_2").fadeIn(400); dimensione_chioma_2();};
+              //giallo
+              if ( albero[1] == "g1" || albero[1] == "g2" ||  albero[1] == "g3" ||  albero[1] == "g4") { $("#giallo_2").fadeIn(400); dimensione_chioma_2();};
+              //rosso
+              if ( albero[1] == "r1" || albero[1] == "r2" ||  albero[1] == "r3" ||  albero[1] == "r4")  { $("#rosso_2").fadeIn(400); dimensione_chioma_2();};
+              //blu
+              if ( albero[1] == "b1" || albero[1] == "b2" ||  albero[1] == "b3" ||  albero[1] == "b4")  { $("#blu_2").fadeIn(400); dimensione_chioma_2();};
+            };
+
+            function genera_chiome_3(){
+              //verde
+              if ( albero[2] == "v1" || albero[2] == "v2" ||  albero[2] == "v3" ||  albero[2] == "v4") { $("#verde_3").fadeIn(400); dimensione_chioma_3();};
+              //giallo
+              if ( albero[2] == "g1" || albero[2] == "g2" ||  albero[2] == "g3" ||  albero[2] == "g4") { $("#giallo_3").fadeIn(400); dimensione_chioma_3();};
+              //rosso
+              if ( albero[2] == "r1" || albero[2] == "r2" ||  albero[2] == "r3" ||  albero[2] == "r4")  { $("#rosso_3").fadeIn(400); dimensione_chioma_3();};
+              //blu
+              if ( albero[2] == "b1" || albero[2] == "b2" ||  albero[2] == "b3" ||  albero[2] == "b4")  { $("#blu_3").fadeIn(400); dimensione_chioma_3();};
+            };
+
+//------------------------------------------------------------------------------------------------------------------------------
+var albero = [];//variabile Array, è una variabile con più valori (una variabile array https://www.w3schools.com/js/js_arrays.asp)
+
+      //SCOMPARSA BOTTONI
+      function gestione_varibili() {
+        n_chiome = n_chiome + 1; //aumento di 1 il numero delle chiome
+        console.log(albero);
+      }
+  //bottoni verdi
+           function click_v1() {
+             if ( n_chiome < 3) {
+                $("#v1").fadeOut(500);
+                albero.push("v1"); //aggiungo un valore alla variabile array albero, con la funzione .push()
+                gestione_varibili();
+                compari_popup_verde()}
+              };
+            $("#v1").on("click",click_v1); // chiamo la funzione dicendo di apparire on click sull'elemento v1
+
+           function click_v2() {
+              if ( n_chiome < 3) {
+                 $("#v2").fadeOut(500);
+                 albero.push("v2");
+                 gestione_varibili();
+                 compari_popup_verde()}
+               };
+             $("#v2").on("click",click_v2);
+
+          function click_v3() {
+               if ( n_chiome < 3) {
+                  $("#v3").fadeOut(500);
+                  albero.push("v3");
+                  gestione_varibili();
+                  compari_popup_verde()}
+                };
+              $("#v3").on("click",click_v3);
+
+              function click_v4() {
+                if ( n_chiome < 3) {
+                   $("#v4").fadeOut(500);
+                   albero.push("v4");
+                   gestione_varibili();
+                   compari_popup_verde()}
+                 };
+               $("#v4").on("click",click_v4);
+
+//bottoni rossi
+              function click_r1() {
+                if ( n_chiome < 3) {
+                   $("#r1").fadeOut(500);
+                   albero.push("r1");
+                   gestione_varibili();
+                   compari_popup_rosso()}
+                 };
+               $("#r1").on("click",click_r1);
+
+               function click_r2() {
+                 if ( n_chiome < 3) {
+                    $("#r2").fadeOut(500);
+                    albero.push("r2");
+                    gestione_varibili();
+                    compari_popup_rosso()}
+                  };
+                $("#r2").on("click",click_r2);
+
+                function click_r3() {
+                  if ( n_chiome < 3) {
+                     $("#r3").fadeOut(500);
+                     albero.push("r3");
+                     gestione_varibili();
+                     compari_popup_rosso()}
+                   };
+                 $("#r3").on("click",click_r3);
+
+                 function click_r4() {
+                   if ( n_chiome < 3) {
+                      $("#r4").fadeOut(500);
+                      albero.push("r4");
+                      gestione_varibili();
+                      compari_popup_rosso()}
+                    };
+                  $("#r4").on("click",click_r4);
+
+  //bottoni gialli
+             function click_g1() {
+               if ( n_chiome < 3) {
+                  $("#g1").fadeOut(500);
+                  albero.push("g1");
+                  gestione_varibili();
+                  compari_popup_giallo()}
+                };
+              $("#g1").on("click",click_g1);
+
+              function click_g2() {
+                if ( n_chiome < 3) {
+                   $("#g2").fadeOut(500);
+                   albero.push("g2");
+                   gestione_varibili();
+                   compari_popup_giallo()}
+                 };
+               $("#g2").on("click",click_g2);
+
+               function click_g3() {
+                 if ( n_chiome < 3) {
+                    $("#g3").fadeOut(500);
+                    albero.push("g3");
+                    gestione_varibili();
+                    compari_popup_giallo()}
+                  };
+                $("#g3").on("click",click_g3);
+
+                function click_g4() {
+                  if ( n_chiome < 3) {
+                     $("#g4").fadeOut(500);
+                     albero.push("g4");
+                     gestione_varibili();
+                     compari_popup_giallo()}
+                   };
+                 $("#g4").on("click",click_g4);
+
+ //bottoni blu
+                  function click_b1() {
+                    if ( n_chiome < 3) {
+                       $("#b1").fadeOut(500);
+                       albero.push("b1");
+                       gestione_varibili();
+                     compari_popup_blu()}
+                     };
+                   $("#b1").on("click",click_b1);
+
+               function click_b2() {
+                 if ( n_chiome < 3) {
+                    $("#b2").fadeOut(500);
+                    albero.push("b2");
+                    gestione_varibili();
+                    compari_popup_blu()}
+                  };
+                $("#b2").on("click",click_b2);
+
+                function click_b3() {
+                  if ( n_chiome < 3) {
+                     $("#b3").fadeOut(500);
+                     albero.push("b3");
+                     gestione_varibili();
+                     compari_popup_blu()}
+                   };
+                 $("#b3").on("click",click_b3);
+
+                 function click_b4() {
+                   if ( n_chiome < 3) {
+                      $("#b4").fadeOut(500);
+                      albero.push("b4");
+                      gestione_varibili();
+                      compari_popup_blu()}
+                    };
+                  $("#b4").on("click",click_b4);
+
+        </script>
+    </body>
+</html>
