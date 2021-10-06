@@ -1,0 +1,88 @@
+/*style file prova_growe.html*/
+.prova-growe{
+    background-image: url(img/ondina-verde-giù.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: min-content;
+    padding-top: 9rem;
+}
+
+/*style file faq.html*/
+.faq{
+    background-color: #FBFEFD;
+    background-image: url(img/ondina-verde-giù.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 10rem;
+    min-height: min-content;
+}
+
+.collapsible {
+    background-color:#EBF7EE;
+    color: #007C5B;
+    cursor: pointer;
+    padding: 1rem 2rem 1rem 2rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    z-index: 1;
+ }
+
+.active, .collapsible:hover {
+    font-weight: 600;
+}
+
+.active{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.is_active{
+    transform: rotate(180deg);
+}
+
+.content {
+    position: relative;
+    top:-1rem;
+    padding: 1rem 2rem 1.5rem 2rem;;
+    display: none;
+    overflow: hidden;
+    background-color: #EBF7EE;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1;
+}
+
+.elenco{
+    list-style-image: url(img/Punto_elenco.png);
+    list-style-position:outside;
+}
+.sfondo-fine{
+    background-image: url(img/background-faq-prova.svg);
+    background-size: cover;
+    background-position: bottom;
+    height: 40rem;
+    margin-top: -9rem;
+}
+
+.main{
+    display: none;
+}
+
+.ruota{
+    display: flex;
+}
+
+@media screen and (min-width:354px){
+    .main{
+        display: block;
+    }
+    .ruota{
+        display: none;
+    }
+}

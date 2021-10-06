@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Growe</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Link al google font Montserrat-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/52bc119c79.js" crossorigin="anonymous"></script>
+
+    <!-- Link al style.css-->
+    <link rel="stylesheet" href="style.css">
+
+    
+
+  </head>
+
+  <body>
+     <!-- Nav bar-->
+     <nav class="navbar fixed-top">
+        <div class="container-fluid">
+            <!-- logo nella navbar-->
+                <a class="navbar-brand" href="index_DEF.html" style="margin-left: 1.5rem;">
+                    <img src="img/logo.png" alt="logo di Growe" width="129" height="22.33">
+                </a>
+
+            <!-- bottone per nav bar schermi xs-sm-->
+                <button id="nav-button" type="button" class="collapsible-nav d-flex d-md-none" >
+                    <i class="fas fa-bars" style="font-size: 20px;"></i>
+                </button>
+
+            <!-- contenuto del collapse-->
+                <div class="dropdown position-absolute end-0">
+                    <ul class="text-end" style="list-style-type:none;">
+                        <li><a class="nav-link" href="prova_growe.html">Prova Growe</a></li>
+                        <li><a class="nav-link" href="faq.html">F.A.Q.</a></li>
+                        <li><a class="nav-link" href="index_DEF.html#download">Download</a></li>
+                    </ul>
+                </div>
+
+         <!-- elenco link navbar per schermi superiori a md-->
+            <ul class="ms-auto d-none d-md-flex align-items-center mb-0" style="list-style-type:none;">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="prova_growe.html">Prova Growe</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="faq.html">F.A.Q.</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#download">Download</a>
+              </li>
+            </ul>
+        </div>
+      </nav>
+
+
+    <!-- immagine con titolo iniziale-->
+      <header > <!-- immagine messa come background in CSS-->
+
+        <div class="header-banner"></div>
+        <div class="container-fluid text-white text-center header">
+              <div class="row">
+                  <div class="col-md-8 col-lg-7 mx-auto col-xl-6 col-xxl-5">
+                      <h1>Fai crescere le emozioni insieme alla tua famiglia</h1>
+                  </div>
+              </div>
+          </div>
+      </header>
+
+      <!-- sezione che introduce al problema della comunicazione delle emozioni-->
+      <section class="introduzione mx-auto">
+          <div class="container text-center text-white">
+              <div class="row frase">
+                  <div class="col-sm-10 col-lg-6 mx-auto">
+                      <h2>Le nostre emozioni creano un paesaggio invisibile: vederlo può farci sentire più vicini</h2>
+                  </div>
+                </div>
+                <div class="row frase">
+                  <div class="col-sm-10 col-lg-6 mx-auto ">
+                    <p class="text-white">Growe è un servizio che nasce per accorciare le distanze tra adolescenti e genitori, che a volte sembrano vivere su pianeti diversi.<p>
+                  </div>
+                </div>
+          </div>
+      </section>
+
+      <!-- video. è in una sezione a parte perchè va alzato rispetto allo sfondo della sezione prima-->
+      <section class="problema">
+        <div class="container-fluid">
+            <div class="row position-relative">
+                <div class="d-flex justify-content-center mx-auto">
+                    <video src="video/Growe_DEF.mp4" id="video-emozionale" controls> <!-- video-->
+                </div>
+            </div>
+        </div>
+      </section>
+
+    <!-- sezione valori-->
+      <section class="valori">
+          <div class="container" >
+              <h1 class="titolo-verde text-center pb-5">La nostra visione</h1>
+              <div class="row d-flex flex-wrap justify-content-center ">   <!-- riga divisa in due colonne con testo a epigrafe. ogni colonna formata da una immagine, titolo e corpo-->
+                    <div class="col-10 col-sm-6 col-lg-4 text-center d-flex flex-column align-items-center">
+                        <img src="img/FIGLIO.svg" alt="" style="max-width: 60%; ">
+                            <div class="valori-testo">
+                                <h2>Per i ragazzi</h2>
+                                <p>Per diventare grandi, abbiamo bisogno di essere ascoltati. Sentendoci liberi di esprimere ciò che sentiamo, senza forzature.</p>
+                            </div>
+                        </div>
+                    <div class="col-10 col-sm-6 col-lg-4 text-center d-flex flex-column align-items-center">
+                        <img src="img/GENITORE.svg" alt="" style="max-width: 75%;">
+                        <div class="valori-testo">
+                            <h2>Per i genitori</h2>
+                            <p>Essere genitori non vuol dire essere invincibili: a volte, mostrare quello che si prova può aiutare a rafforzare i legami famigliari.</p>
+                        </div>
+                    </div>
+              </div>
+          </div>
+
+      </section>
+
+    <!-- sezione per i 3 step principali dell'esperienza (introspezione, condivisione, conversazione)-->
+      <section class="come-funziona">
+          <div class="container">
+              <div class="row">
+                  <h1 class="titolo-verde">Come funziona</h1>
+              </div>
+              <div class="row justify-content-evenly">     <!-- 1 riga divisa in 3 colonne (3 card),  ognuna con immagine e div con il testo -->
+
+                  <div class="col-10 col-sm-7 col-lg mb-5 step shadow">  <!--step introspezione-->
+                    <img class="step-img" src="img/stati-animo.png">
+                    <div class="step-testo">
+                        <div class="step-titolo"> <h4>Tieni traccia dei tuoi stati d’animo</h4></div>
+                        <p class="step-p">Growe ti aiuta a capire cosa provi e lo rende bello: lo trasforma in un alberello.</p>
+                    </div>
+                  </div>
+                  <div class="col-10 col-sm-7 col-lg mb-5 step shadow"> <!--step condivisione del bosco-->
+                    <img class="step-img" src="img/emozioni.png">
+                    <div class="step-testo">
+                        <h4 >Coltiva il bosco con la tua famiglia</h4>
+                        <p class="step-p">Create paesaggi diversi ogni giorno e sbloccate nuovi scenari condividendo i vostri alberi nel tempo.</p>
+                    </div>
+                    </div>
+                  <div class="col-10 col-sm-7 col-lg mb-5 step shadow">  <!--step conversazione-->
+                    <img class="step-img" src="img/conversazione.png">
+                    <div class="step-testo">
+                        <h4 >E ora, a cena o sul divano... parlatene!</h4>
+                        <p class="step-p">Niente panico: nessuno in famiglia saprà qual è il tuo alberello... finchè non glielo dirai.</p>
+                    </div>
+                    </div>
+              </div>
+
+          </div>
+      </section>
+
+       <!--sezione carosello di alberi-->
+      <section class="carosello-alberi">
+          <div>
+              <h1 class="titolo-verde">Tutti i colori delle emozioni</h1>
+          </div>
+          <div class="container-fluid"> <!--due righe che contengono le card con gli alberi-->
+            <div class="row riga-1 animation-element slide-right"> <!--riga 1 (scorre da dx verso sx). ogni riga ha 8 card interne-->
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero1.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero2.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero3.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero4.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero5.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero6.png">
+                 </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero7.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero8.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero1.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero2.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero3.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero4.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero5.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero6.png">
+                 </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero7.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero8.png">
+                </div>
+            </div>
+            <div class="row riga-2 animation-element slide-left"> <!--riga 1 (scorre da sx verso dx-> flex direction reverse) ogni riga ha 8 card interne.-->
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero9.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero10.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero11.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero12.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero13.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero14.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero15.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero16.png">
+                </div>
+
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero10.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero11.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero16.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero12.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero13.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero14.png">
+                </div>
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero15.png">
+                <div class="card-singola col-6 col-sm-4 col-md-3 col-lg-2">
+                    <img class="foto-albero" src="img/Gallery alberi/albero9.png">
+                </div>
+
+                </div>
+            </div>
+            <div class="row mt-3 text-center text-md-start justify-content-evenly align-items-center">
+                <p class="col-12 col-md-4 col-lg-4 mb-0">Ogni colore è una ricchezza,<br> ogni emozione una risorsa.</p>
+                <a href="prova_growe.html" class="col-12 col-md-3 col-lg-3 mt-3">Crea il tuo albero delle emozioni<i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+      </section>
+
+      <!--sezione per altre funzionalità dell'app-->
+      <section class="funzioni sfondo-verdino" >
+        <h1 class="titolo-verde" >Molto più di un bosco</h1>
+
+        <div class="container d-flex flex-wrap flex-md-nowrap align-items-center justify-content-center ">
+
+             <!--pagination per navigare tra le funzioni attraverso i pallini-->
+             <div class="pagination mt-4 mt-md-0 me-md-2">
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li class="pagination__item d-inline d-md-block"><i id="freccia_su" class="fas fas fa-chevron-left"></i></li>
+              </ul>
+            </div>
+
+            <div class="card-sfondo col-12 col-lg-9 overflow-hidden" >
+                <div id="papiro">
+                 <!--erbario-->
+                 <div id="erbario" class="row align-items-start align-items-md-center justify-content-center pb-2 pt-md-4 pt-lg-3">
+                    <div class="col-11 pb-3 pb-sm-0 col-sm-7 col-md-6 col-lg-6 order-2 order-md-1 text-center text-md-start ps-md-5">
+                        <p class="numero">1/6</p>
+                        <h2>Erbario</h2>
+                        <p>È lo storico dei tuoi stati d’animo!<br> Un diario personale sotto forma di alberi e radici, per tenere traccia dei tuoi pensieri nel tempo. </p>
+                    </div>
+                    <div class="col-8 col-sm-7 col-md-6 col-lg-6 col-xl-5 col-xxl-4 pb-3 pb-sm-0 pt-lg-5 pb-xl-5 order-1 order-md-2">
+                        <video src="video/Erbario_new.mp4" id="video-funzioni" muted autoplay loop></video>
+                    </div>
+                </div>
+                <!--growheel-->
+                <div id="growheel" class="row align-items-start align-items-md-center justify-content-center pb-2 pt-md-4 pt-lg-3">
+                    <div class="col-11 col-sm-7 col-md-6 col-lg-6 order-2 order-md-1 text-center text-md-start ps-md-5">
+                        <p class="numero">2/6</p>
+                        <h2>GroWheel</h2>
+                        <p>Ogni emozione ha mille sfumature: arricchisci i tuoi stati d’animo attraverso testi, tag e contenuti multimediali. </p>
+                    </div>
+                    <div class="col-8 col-sm-7 col-md-6 col-lg-6 col-xl-5 col-xxl-4 pb-3 pb-sm-0 pt-lg-5 pb-xl-5 order-1 order-md-2">
+                        <video src="video/Growheel.mp4" id="video-funzioni"muted autoplay loop></video>
+                    </div>
+                </div>
+                <!--moodtracker-->
+                <div id="moodtracker" class="row align-items-start align-items-md-center justify-content-center pb-2 pt-md-4 pt-lg-3">
+                    <div class="col-11 col-sm-7 col-md-6 col-lg-6 pb-5 pb-sm-0 order-2 order-md-1 text-center text-md-start ps-md-5">
+                        <p class="numero">3/6</p>
+                        <h2>Moodtracker</h2>
+                        <p>Rivedi il tuo andamento emotivo attraverso le tue statistiche personali mensili e annuali. </p>
+                    </div>
+                    <div class="col-8 col-sm-7 col-md-6 col-lg-6 col-xl-5 col-xxl-4 pb-3 pb-sm-0 pt-lg-5 pb-xl-5 order-1 order-md-2">
+                        <video src="video/Moodtracker.mp4" id="video-funzioni" muted autoplay loop></video>
+                    </div>
+                </div>
+                  <!--tips-->
+                  <div id="tips" class="row align-items-start align-items-md-center justify-content-center pb-2 pt-md-4 pt-lg-3">
+                    <div class="col-11 col-sm-7 col-md-6 col-lg-6 order-2 order-md-1 text-center text-md-start ps-md-5">
+                        <p class="numero">4/6</p>
+                        <h2>Tips</h2>
+                        <p>Raccogli spunti e suggestioni per lavorare su te stess*. Puoi riflettere sugli spunti nel modo che preferisci, attraverso la GroWheel.</p>
+                    </div>
+                    <div class="col-8 col-sm-7 col-md-6 col-lg-6 col-xl-5 col-xxl-4 pb-3 pb-sm-0 pt-lg-5 pb-xl-5 order-1 order-md-2">
+                        <video src="video/Tips.mp4" id="video-funzioni" muted autoplay loop></video>
+                    </div>
+                </div>
+                  <!--badge-->
+                  <div id="badge"class="row align-items-start align-items-md-center justify-content-center pb-2 pt-md-4 pt-lg-3">
+                    <div class="col-11 col-sm-7 col-md-6 col-lg-6 order-2 order-md-1 text-center text-md-start ps-md-5">
+                        <p class="numero">5/6</p>
+                        <h2>Badge</h2>
+                        <p>Acquisisci familiarità con le tue emozioni e diventa un coltivatore modello! In più, insieme alla tua famiglia potrete sbloccare nuovi scenari per il vostro bosco.</p>
+                    </div>
+                    <div class="col-8 col-sm-7 col-md-6 col-lg-6 col-xl-5 col-xxl-4 pb-3 pb-sm-0 pt-lg-5 pb-xl-5 order-1 order-md-2">
+                        <video src="video/Badge.mp4" id="video-funzioni" muted autoplay loop></video>
+                    </div>
+                </div>
+                  <!--community-->
+                <div id="community" class="row align-items-start align-items-md-center justify-content-center pb-2 pt-md-4 pt-lg-3">
+                    <div class="col-11 col-sm-8 col-md-6 col-lg-6 pb-5 pb-sm-0 order-2 order-md-1 text-center text-md-start ps-md-5">
+                        <p class="numero">6/6</p>
+                        <h2>Community per genitori</h2>
+                        <p>Naviga gli argomenti e ricevi il supporto di altri genitori ed esperti dell’età evolutiva. </p>
+                    </div>
+                    <div class="col-8 col-sm-7 col-md-6 col-lg-6 col-xl-5 col-xxl-4 pb-4 pb-sm-0 pt-lg-5 pb-xl-5 order-1 order-md-2">
+                        <video src="video/Community.mp4" id="video-funzioni" muted autoplay loop></video>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!--pagination per navigare tra le funzioni attraverso i pallini-->
+            <div class="pagination mt-4 mt-md-0 ms-md-2">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li class="pagination__item d-inline d-md-block"><i id="freccia_giu" class="fas fas fa-chevron-right  "></i></li>
+                  </ul>
+            </div>
+            
+        </div>
+     </section>
+    <!-- sezione touchpoint fisico-->
+    <section class="touchpoint">
+        <div class="container-flex container-sm">
+            <h1 class="titolo-verde text-center pt-3">Sotto gli occhi di tutti, <br>anche senza parlare</h1>
+            <div class="row align-items-center justify-content-center"> <!-- 1 riga divisa in due colonne (una per l'immagine, l'altra per corpo testo)-->
+                <div class="col col-md-6 col-lg-6">
+                    <img class="tv" src="img/smart-tv.png" alt="" width="100%">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 text-center text-md-start mt-3 mt-md-0">
+                    <h4 class="mb-3">Connettete Growe alla vostra cornice digitale o smart TV per un’esperienza completa.</h4>
+                    <p>Potrete sempre visualizzare il vostro bosco nell’applicazione dedicata e installando lo screensaver dinamico Growe.</p>
+                    <a href="faq.html" >Maggiori dettagli <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- da inserire quello per la cornice digitale e tablet-->
+        </div>
+    </section>
+
+    <!-- sezione link per il download-->
+    <section id="download" class="download" >
+        <div class="container">
+            <div class="row d-flex flex-md-nowrap justify-content-center align-items-md-center pt-4">
+                <div class="col-3 col-md-3 col-lg-2 m-2">
+                    <img src="img/logo-app-piccolo.svg">
+                </div>
+                <div class="col-12 col-md-4 justify-content-center justify-content-md-start">
+                    <div class="row text-center text-md-start">
+                        <h2>Scarica l’app</h2>
+                        <p>Proponi Growe alla tua famiglia e connettetevi per crescere insieme.</p>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-center justify-content-md-start flex-md-nowrap">
+                        <a href="https://play.google.com/store" class="m-2 ms-md-0 badge-download">
+                            <img src="img/google-play-badge.png" ></a> <!-- link google play store-->
+                        <a href="https://www.apple.com/app-store/" class="offset-md-1 m-2 badge-download"> <img src="img/apple-store-badge.png" ></a> <!-- link apple app store-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer con nomi dei membri del gruppo e corso-->
+    <footer>
+        <div class="container">
+            <div class="row text-white align-items-start justify-content-center">
+
+                <div class="col-2 col-lg-1 mb-2 mb-md-0">
+                    <img src="img/logo_Polimi_bianco.png" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-md-4 text-center text-md-start">
+                    <p style="color: white;"><strong>POLITECNICO DI MILANO</strong> <br> Laboratorio di Sistemi per l’Interazione <br> AA 2020/2021 </p>
+                </div>
+
+                <div class="col-md-3 offset-md-1">
+                    <ul class="text-center ps-0 text-md-end " style="list-style-type: none"> <strong>Un progetto di</strong>
+                        <li>Elisabetta Azzalini</li>
+                        <li>Luca Meneguzzo</li>
+                        <li>Alessandra Perosi</li>
+                        <li>Filippo Repishti</li>
+                        <li>Silvia Tanasini</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+<!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+<!--link a cdn jquery e cloudflare-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="js/sticky.jquery.js"></script>
+   <script>
+        $(document).ready(function(){
+
+            //script per il collapsible della navbar
+                var bottone = document.getElementsByClassName("collapsible-nav");
+                var i
+
+                for (i = 0; i < bottone.length; i++) {
+                    bottone[i].addEventListener("click", function() {
+
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                        content.style.display = "none";
+                        } else {
+                        content.style.display = "block";
+                        }
+                    });
+                    };
+
+
+            //animazione per il carosello orizzontale: quando il div riga entra nella schermata allora comincia a scorrere
+                var $animation_elements = $('.animation-element');
+                var $window = $(window);
+
+                function check_if_in_view() {
+                    var window_height = $window.height();
+                    var window_top_position = $window.scrollTop();
+                    var window_bottom_position = (window_top_position + window_height);
+
+                $.each($animation_elements, function() {
+                    var $element = $(this);
+                    var element_height = $element.outerHeight();
+                    var element_top_position = $element.offset().top;
+                    var element_bottom_position = (element_top_position + element_height);
+
+                    //check to see if this current container is within viewport
+                    if ((element_bottom_position >= window_top_position) &&
+                        (element_top_position <= window_bottom_position)) {
+                    $element.addClass('in-view');
+                    } else {
+                    $element.removeClass('in-view');
+                    }
+                });
+                }
+
+                $window.on('scroll resize', check_if_in_view);
+                $window.trigger('scroll');
+
+            //funzionamento dei pallini nella section funzioni
+                var link = $('.pagination__link');
+                link.on('click', function(){
+                link.removeClass('is_active');
+                $(this).addClass('is_active');
+                });
+            
+             
+             
+                //script per le frecce
+                
+                var alfa = 0;
+                console.log(alfa)
+                    //funzione per per freccia_giu: alfa aumenta di  1
+                function cambia_alfa(){
+                    alfa = alfa+1;
+                    console.log(alfa);
+                    go_down();
+                };
+                     //funzione per per freccia_su: alfa diminuisce di  1
+                function cambia_alfa1(){
+                    alfa = alfa-1;
+                    console.log(alfa);
+                    go_down();
+                };
+                
+                function go_down() {
+                    if(alfa==0){$('#papiro').css("margin-top", "0rem")}
+                    else if(alfa==1){$('#papiro').css("margin-top", "-34rem")}
+                    else if  (alfa==2){$('#papiro').css("margin-top", "-68rem")}
+                    else if (alfa==3){$('#papiro').css("margin-top", "-102rem")}
+                    else if  (alfa==4){$('#papiro').css("margin-top", "-136rem")}
+                    else if  (alfa==5){$('#papiro').css("margin-top", "-170rem")}
+                
+                };
+                
+
+                $("#freccia_giu").on("click",cambia_alfa);
+                $("#freccia_su").on("click",cambia_alfa1);
+
+
+                
+        })
+
+    </script>
+
+  </body>
+</html>

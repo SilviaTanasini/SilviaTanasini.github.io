@@ -1,0 +1,145 @@
+!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Growe</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Link al google font Montserrat-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/52bc119c79.js" crossorigin="anonymous"></script>
+
+    <!-- Link al style.css-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_FAQ_ProvaGrowe.css">
+
+  </head>
+
+  <body>
+    <!-- Nav bar-->
+    <nav class="navbar fixed-top">
+      <div class="container-fluid">
+          <!-- logo nella navbar-->
+              <a class="navbar-brand" href="index_DEF.html" style="margin-left: 1.5rem;">
+                  <img src="img/logo.png" alt="logo di Growe" width="129" height="22.33">
+              </a>
+
+          <!-- bottone per nav bar schermi xs-sm-->
+              <button id="nav-button" type="button" class="collapsible-nav d-flex d-md-none" >
+                  <i class="fas fa-bars" style="font-size: 20px;"></i>
+              </button>
+
+          <!-- contenuto del collapse-->
+              <div class="dropdown position-absolute end-0">
+                  <ul class="text-end" style="list-style-type:none;">
+                      <li><a class="nav-link" href="prova_growe.html">Prova Growe</a></li>
+                      <li><a class="nav-link" href="faq.html">F.A.Q.</a></li>
+                      <li><a class="nav-link" href="index_DEF.html#download">Download</a></li>
+                  </ul>
+              </div>
+
+      <!-- elenco link navbar per schermi superiori a md-->
+          <ul class="ms-auto d-none d-md-flex align-items-center mb-0" style="list-style-type:none;">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="prova_growe.html">Prova Growe</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="faq.html">F.A.Q.</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="index_DEF.html#download">Download</a>
+            </li>
+          </ul>
+      </div>
+    </nav>
+
+      <section class="prova-growe">
+          <div class="container ">
+
+            <h1 class="text-center titolo-verde">Prova Growe</h1>
+
+            <div class="row text-center justify-content-center">
+              <div class="col-9">
+                <p class="ruota">Ruota lo schermo per provare l'app di Growe</p>
+                <p class="ruota" style="font-size: 25px;"><i class="fa fa-rotate-right mx-auto"></i></p>
+              </div>
+            </div>
+
+            <div class="main">
+              <div class="row justify-content-center mb-4">
+                <div class="col-10 col-sm-7 col-md-5 text-center ps-0">
+                  <p>Scegli una o più parole per descrivere il tuo stato d’animo e divertiti a creare il tuo albero!</p>
+                </div>
+              </div>
+              <!--Purtroppo non sono riuscita a rendere l'iframe responsive, anche con il metodo di inserirlo all'interno di un div
+              in position relative e a cui attribuire un padding top in percentuale che riprendesse la ratio giusta. Quando lo facevo
+              il div agiva da maschera sul contenuto dell'iframe (nascondendone parti a seconda della grandezza), non ne scalava il contenuto.
+              Ecco perchè ho preferito invitare l'utente a girare lo schermo qualora fosse troppo piccolo per visualizzare tutto
+              il prototipo in orizzontale e di mostrare il prototipo per schermi superiori ai 354px.-->
+              <div class="d-flex justify-content-center">
+                <div >
+                  <iframe src="prototipo.html" title="prova Growe" width="390px" height="690px"></iframe>
+                </div>
+              </div>
+          </div>
+
+
+
+      </section>
+      <div class="conteiner-fluid sfondo-fine"></div>
+
+      <footer>
+        <div class="container">
+            <div class="row text-white align-items-start justify-content-center">
+
+                <div class="col-2 col-lg-1 mb-2 mb-md-0">
+                    <img src="img/logo_Polimi_bianco.png" alt="" width="100%" height="auto">
+                </div>
+                <div class="col-md-4 text-center text-md-start">
+                    <p style="color: white;"><strong>POLITECNICO DI MILANO</strong> <br> Laboratorio di Sistemi per l’Interazione <br> AA 2020/2021 </p>
+                </div>
+
+                <div class="col-md-3 offset-md-1">
+                    <ul class="text-center ps-0 text-md-end " style="list-style-type: none"> <strong>Un progetto di</strong>
+                        <li>Elisabetta Azzalini</li>
+                        <li>Luca Meneguzzo</li>
+                        <li>Alessandra Perosi</li>
+                        <li>Filippo Repishti</li>
+                        <li>Silvia Tanasini</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+      <!--link a cdn jquery e cloudflare-->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+         <script>
+              $(document).ready(function(){
+
+                  //script per il collapsible della navbar
+                      var bottone = document.getElementsByClassName("collapsible-nav");
+                      var i
+
+                      for (i = 0; i < bottone.length; i++) {
+                          bottone[i].addEventListener("click", function() {
+
+                              var content = this.nextElementSibling;
+                              if (content.style.display === "block") {
+                              content.style.display = "none";
+                              } else {
+                              content.style.display = "block";
+                              }
+                          });
+                          };
+              })
+            </script>
+    </body>
